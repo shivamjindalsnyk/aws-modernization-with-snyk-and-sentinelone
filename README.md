@@ -4,14 +4,16 @@ Containers enable you to separate your applications from your infrastructure so 
 
 Snyk is a Cloud Native Application Security solution that enables developers and security teams to find and automatically fix vulnerabilities in your source code, Infrastructure as code templates, container images, kubernetes applications, and open source artifacts.
 
+TODO: Add SentinelOne Info
+
 ### Welcome
 
-In this workshop you will learn how to scan containerized applications for vulnerabilities using Snyk. 
+In this workshop you will learn how to scan containerized applications for vulnerabilities using Snyk and how to detect and protect from threats using SentinelOne. 
 
 ### Learning Objectives
-- Scan a containerized application using Snyk Container CLI for vulnerabilties
-- Continuous Integration with Snyk
-- DevSecOps with Snyk and AWS Code* Services
+- Scan container images for vulnerabilities using the Snyk Container CLI
+- Detect a threat on the running container with SentinelOne
+- Harden the container by fixing the underlying vulnerability
 
 ### Instruction to run workshop on your own: 
 
@@ -20,7 +22,7 @@ This page is build with Hugo, so you'll need to install it - https://gohugo.io/g
 Next, clone this repo: 
 
 ```
-git clone git@github.com:aws-samples/aws-modernization-snyk-docker.git
+git clone https://github.com/shivamjindalsnyk/aws-modernization-with-snyk-and-sentinelone.git
 ```
 
 Ensure that you have also cloned the submodules:
