@@ -10,7 +10,6 @@ Now that you've cloned the repo to your working environment, we'll build a few c
 The following commands will create 3 repositories for the images we will be building:
 
 ```sh
-aws ecr create-repository --repository-name thumbnailer
 aws ecr create-repository --repository-name todolist
 aws ecr create-repository --repository-name log4shell-server
 ```
@@ -18,10 +17,10 @@ After each finishes you should get a JSON reponse similar to the following:
 ```json
 {
     "repository": {
-        "repositoryArn": "arn:aws:ecr:us-east-2:012345678901:repository/thumbnailer",
+        "repositoryArn": "arn:aws:ecr:us-east-2:012345678901:repository/todolist",
         "registryId": "012345678901",
-        "repositoryName": "thumbnailer",
-        "repositoryUri": "012345678901.dkr.ecr.us-east-2.amazonaws.com/thumbnailer",
+        "repositoryName": "todolist",
+        "repositoryUri": "012345678901.dkr.ecr.us-east-2.amazonaws.com/thumbtodolistnailer",
         "createdAt": "2023-06-05T16:02:53+00:00",
         "imageTagMutability": "MUTABLE",
         "imageScanningConfiguration": {
@@ -62,8 +61,6 @@ Now we will build the images. Be sure you are cd'ed into the cloned goof repo di
 
 Once you are in the right directory, run the following commands to build the container images.
 ```sh
-docker build -t $REPO/thumbnailer:latest thumbnailer
-
 docker build -t $REPO/todolist:latest todolist
 
 docker build -t $REPO/log4shell-server:latest todolist/exploits/log4shell-server
@@ -76,14 +73,12 @@ $ docker images
 REPOSITORY         TAG       IMAGE ID       CREATED          SIZE
 012345678901.dkr.ecr.us-east-2.amazonaws.com/log4shell-server   latest    a42b0d443129   10 minutes ago   535MB
 012345678901.dkr.ecr.us-east-2.amazonaws.com/todolist           latest    57ad8c044dbd   15 minutes ago   612MB
-012345678901.dkr.ecr.us-east-2.amazonaws.com/thumbnailer        latest    3406c6d949b4   20 minutes ago   941MB
 ```
 
 ## Push container images to ECR
 Next, we want to push the images to ECR but before we can push them we need to create their respective repositories.
 
 ```sh
-docker push $REPO/thumbnailer:latest
 docker push $REPO/todolist:latest
 docker push $REPO/log4shell-server:latest
 
